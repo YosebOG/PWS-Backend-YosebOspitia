@@ -86,17 +86,21 @@
         </div>
     </nav>
     <!-- cuerpo de la página -->
-    <div class="container-lg col-lg-10" style="background-color: #e9ecef;">
-        <div class="row py-3">
-            <div class="col-lg-8 col-md-9 col-sm-11">
-                <div class="input-group">
-                    <span class="input-group-text">Codigo de Producto</span>
-                    <input type="text" aria-label="First name" class="form-control">
-                    <button class="btn btn-outline-primary" type="button" id="button-addon2">Buscar</button>
+    <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
+        <form action="php/db_consultar.php" method="post">
+            <div class="row py-3">
+                <div class="col-lg-8 col-md-9 col-sm-11">
+                    <div class="input-group">
+                        <span class="input-group-text">Codigo de Producto</span>
+                        <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod">
+                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="pb-2">
+        </form>
+    </div>
+
+    <!-- <div class="pb-2">
             <div style="background-color: #fff;">
                 <table class="table">
                     <thead>
@@ -133,8 +137,10 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
+        </div>  -->
+    
+
+
     <!-- footer -->
     <div class="container fixed-bottom">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

@@ -86,25 +86,72 @@
     </nav>
 
     <?php
-    // Llamar conexión DB
-    require("config_con2.php");
+        // Llamar conexión DB
+        require("config_con2.php");
 
-    $i_pCod = $_POST["i_Pcod"];
-    $i_pNom = $_POST["i_Pnom"];
-    $i_pTip = $_POST["i_Ptip"];
-    $i_pCant = $_POST["i_Pcant"];
-    $i_pClas = $_POST["i_Pclas"];
-    $i_pMarc = $_POST["i_Pmarc"];
-    $i_pSer = $_POST["i_Pser"];
-    $i_pMod = $_POST["i_Pmod"];
-    $i_pPrecio = $_POST["i_Pprecio"];
+        $i_pCod = $_POST["i_Pcod"];
+        $i_pNom = $_POST["i_Pnom"];
+        $i_pTip = $_POST["i_Ptip"];
+        $i_pCant = $_POST["i_Pcant"];
+        $i_pClas = $_POST["i_Pclas"];
+        $i_pMarc = $_POST["i_Pmarc"];
+        $i_pSer = $_POST["i_Pser"];
+        $i_pMod = $_POST["i_Pmod"];
+        $i_pPrecio = $_POST["i_Pprecio"];
 
-    $sql = "INSERT INTO tabla30 (pCod, pNom, pTip, pCant, pClas, pMarc, pSer, pMod, pPrecio) 
-            VALUES ('$i_pCod', '$i_pNom', '$i_pTip', '$i_pCant', '$i_pClas', '$i_pMarc', '$i_pSer', '$i_pMod', '$i_pPrecio' )";
+        $sql = "INSERT INTO tabla30 (pCod, pNom, pTip, pCant, pClas, pMarc, pSer, pMod, pPrecio) 
+                VALUES ('$i_pCod', '$i_pNom', '$i_pTip', '$i_pCant', '$i_pClas', '$i_pMarc', '$i_pSer', '$i_pMod', '$i_pPrecio' )";
 
-    if (mysqli_query($conn, $sql)) {
-        
+        if (mysqli_query($conn, $sql)) {
+            
     ?>
+
+    <div class="container-lg col-lg-7">
+        <legend>Ingreso de Productos</legend>
+        <div class="row pt-3 pb-1" style="background-color: #e9ecef;">
+            <div class="col">
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Codigo</span>
+                    <input type="text" aria-label="Código Producto" class="form-control" id="i_Pcod" name="i_Pcod" placeholder="Ingrese el código del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Nombre</span>
+                    <input type="text" aria-label="Nombre Producto" class="form-control" id="i_Pnom" name="i_Pnom" placeholder="Ingrese el nombre del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Tipo</span>
+                    <input type="text" aria-label="Tipo Producto" class="form-control" id="i_Ptip" name="i_Ptip" placeholder="Ingrese el tipo del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Cantidad</span>
+                    <input type="text" aria-label="Cantidad Unidades" class="form-control" id="i_Pcant" name="i_Pcant" placeholder="Ingrese la cantidad de productos disponibles">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Clase</span>
+                    <input type="text" aria-label="Clase Producto" class="form-control" id="i_Pclas" name="i_Pclas" placeholder="Ingrese la clase del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Marca</span>
+                    <input type="text" aria-label="Marca Producto" class="form-control" id="i_Pmarc" name="i_Pmarc" placeholder="Ingrese la marca del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Serial</span>
+                    <input type="text" aria-label="Serial Producto" class="form-control" id="i_Pser" name="i_Pser" placeholder="Ingrese el serial del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Modelo</span>
+                    <input type="text" aria-label="Model Producto" class="form-control" id="i_Pmod" name="i_Pmod" placeholder="Ingrese el modelo del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Precio</span>
+                    <input type="text" aria-label="Precio Producto" class="form-control" id="i_Pprecio" name="i_Pprecio" placeholder="Ingrese el precio del producto">
+                </div>
+            </div>
+        </div>
+        <div class="d-grid col-6 mx-auto mt-3 mb-2">
+            <button type="submit" class="btn btn-primary" aria-label="Botón Ingresar">Ingresar</button>
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
@@ -138,8 +185,56 @@
     </script>
     
     <?php
-    } else {
+        } else {
     ?>
+
+    <div class="container-lg col-lg-7">
+        <legend>Ingreso de Productos</legend>
+        <div class="row pt-3 pb-1" style="background-color: #e9ecef;">
+            <div class="col">
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Codigo</span>
+                    <input type="text" aria-label="Código Producto" class="form-control" id="i_Pcod" name="i_Pcod" placeholder="Ingrese el código del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Nombre</span>
+                    <input type="text" aria-label="Nombre Producto" class="form-control" id="i_Pnom" name="i_Pnom" placeholder="Ingrese el nombre del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Tipo</span>
+                    <input type="text" aria-label="Tipo Producto" class="form-control" id="i_Ptip" name="i_Ptip" placeholder="Ingrese el tipo del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Cantidad</span>
+                    <input type="text" aria-label="Cantidad Unidades" class="form-control" id="i_Pcant" name="i_Pcant" placeholder="Ingrese la cantidad de productos disponibles">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Clase</span>
+                    <input type="text" aria-label="Clase Producto" class="form-control" id="i_Pclas" name="i_Pclas" placeholder="Ingrese la clase del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Marca</span>
+                    <input type="text" aria-label="Marca Producto" class="form-control" id="i_Pmarc" name="i_Pmarc" placeholder="Ingrese la marca del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Serial</span>
+                    <input type="text" aria-label="Serial Producto" class="form-control" id="i_Pser" name="i_Pser" placeholder="Ingrese el serial del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Modelo</span>
+                    <input type="text" aria-label="Model Producto" class="form-control" id="i_Pmod" name="i_Pmod" placeholder="Ingrese el modelo del producto">
+                </div>
+                <div class="input-group mb-2">
+                    <span class="input-group-text col-sm-3">Precio</span>
+                    <input type="text" aria-label="Precio Producto" class="form-control" id="i_Pprecio" name="i_Pprecio" placeholder="Ingrese el precio del producto">
+                </div>
+            </div>
+        </div>
+        <div class="d-grid col-6 mx-auto mt-3 mb-2">
+            <button type="submit" class="btn btn-primary" aria-label="Botón Ingresar">Ingresar</button>
+        </div>
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog">
@@ -172,8 +267,8 @@
     </script>    
     
     <?php
-    }
-    mysqli_close($conn);
+        }
+        mysqli_close($conn);
     ?>
 
     <!-- footer -->

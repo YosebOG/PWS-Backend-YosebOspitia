@@ -30,36 +30,36 @@
         <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
         </symbol>
     </svg>
-
+    
     <!-- -Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm p-3 mb-5" style="background-color: #D35400;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">PC Electronics</a>
+            <a class="navbar-brand" href="../index.html">PC Electronics</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Aplicaciones</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="calculadora.html">Calculadora</a></li>
-                            <li><a class="dropdown-item" href="conversor.html">Conversor</a></li>
+                            <li><a class="dropdown-item" href="../calculadora.html">Calculadora</a></li>
+                            <li><a class="dropdown-item" href="../conversor.html">Conversor</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Inventario</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="pConsultar.html">Consultar</a></li>
-                            <li><a class="dropdown-item" href="pIngresar.html">Ingresar</a></li>
-                            <li><a class="dropdown-item" href="pActualizar.html">Actualizar</a></li>
+                            <li><a class="dropdown-item" href="../pConsultar.html">Consultar</a></li>
+                            <li><a class="dropdown-item" href="../pIngresar.html">Ingresar</a></li>
+                            <li><a class="dropdown-item" href="../pActualizar.html">Actualizar</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="pEliminar.html">Eliminar</a></li>
+                            <li><a class="dropdown-item" href="../pEliminar.html">Eliminar</a></li>
                             <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                     </li>
@@ -67,10 +67,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Admin</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="php/create_db.php">Crear DB</a></li>
-                            <li><a class="dropdown-item" href="php/create_tbl.php">Crear Tbl</a></li>
-                            <li><a class="dropdown-item" href="php/reportePDF.php">Reportes</a></li>
-                            <li><a class="dropdown-item" href="php/backup.php">Backup</a></li>
+                            <li><a class="dropdown-item" href="create_db.php">Crear DB</a></li>
+                            <li><a class="dropdown-item" href="create_tbl.php">Crear Tbl</a></li>
+                            <li><a class="dropdown-item" href="reportePDF.php">Reportes</a></li>
+                            <li><a class="dropdown-item" href="backup.php">Backup</a></li>
                             <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                     </li>
@@ -85,57 +85,124 @@
             </div>
         </div>
     </nav>
-    <!-- cuerpo de la página -->
-    <div class="container-lg col-lg-7">
-        <legend>Ingreso de Productos</legend>
-        <form action="php/db_ingresar.php" method="post">
-            <div class="row pt-3 pb-1" style="background-color: #e9ecef;">
-                <div class="col">
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Codigo</span>
-                        <input type="text" aria-label="Código Producto" class="form-control" id="i_Pcod" name="i_Pcod" placeholder="Ingrese el código del producto">
-                    </div>
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Nombre</span>
-                        <input type="text" aria-label="Nombre Producto" class="form-control" id="i_Pnom" name="i_Pnom" placeholder="Ingrese el nombre del producto">
-                    </div>
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Tipo</span>
-                        <input type="text" aria-label="Tipo Producto" class="form-control" id="i_Ptip" name="i_Ptip" placeholder="Ingrese el tipo del producto">
-                    </div>
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Cantidad</span>
-                        <input type="text" aria-label="Cantidad Unidades" class="form-control" id="i_Pcant" name="i_Pcant" placeholder="Ingrese la cantidad de productos disponibles">
-                    </div>
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Clase</span>
-                        <input type="text" aria-label="Clase Producto" class="form-control" id="i_Pclas" name="i_Pclas" placeholder="Ingrese la clase del producto">
-                    </div>
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Marca</span>
-                        <input type="text" aria-label="Marca Producto" class="form-control" id="i_Pmarc" name="i_Pmarc" placeholder="Ingrese la marca del producto">
-                    </div>
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Serial</span>
-                        <input type="text" aria-label="Serial Producto" class="form-control" id="i_Pser" name="i_Pser" placeholder="Ingrese el serial del producto">
-                    </div>
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Modelo</span>
-                        <input type="text" aria-label="Model Producto" class="form-control" id="i_Pmod" name="i_Pmod" placeholder="Ingrese el modelo del producto">
-                    </div>
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-sm-3">Precio</span>
-                        <input type="text" aria-label="Precio Producto" class="form-control" id="i_Pprecio" name="i_Pprecio" placeholder="Ingrese el precio del producto">
+
+    <?php 
+        // Llamar conexión DB
+        require("config_con2.php");
+
+        $c_pCod = $_POST["c_Pcod"];
+
+        $sql = "SELECT * FROM tabla30 where pCod=$c_pCod";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            // Salida de datos de cada fila
+            while($row = mysqli_fetch_assoc($result)) {
+    ?>
+
+    <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
+        <form action="db_consultar.php" method="post">
+            <div class="row py-3">
+                <div class="col-lg-8 col-md-9 col-sm-11">
+                    <div class="input-group">
+                        <span class="input-group-text">Codigo de Producto</span>
+                        <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $row["pCod"]?>">
+                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
                     </div>
                 </div>
             </div>
-            <div class="d-grid col-6 mx-auto mt-3 mb-2">
-                <button type="submit" class="btn btn-primary" aria-label="Botón Ingresar">Ingresar</button>
-            </div>
         </form>
+        <div class="pb-2">
+            <div style="background-color: #fff;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Clase</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Serial</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Precio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row"><?php echo $row["pCod"]; ?></th>
+                            <td><?php echo $row["pNom"]; ?></td>
+                            <td><?php echo $row["pTip"]; ?></td>
+                            <td><?php echo $row["pCant"]; ?></td>
+                            <td><?php echo $row["pClas"]; ?></td>
+                            <td><?php echo $row["pMarc"]; ?></td>
+                            <td><?php echo $row["pSer"]; ?></td>
+                            <td><?php echo $row["pMod"]; ?></td>
+                            <td><?php echo $row["pPrecio"]; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
+
+    <?php
+            mysqli_close($conn);
+            }
+        } else {
+    ?>
+
+    <div class="container-lg col-lg-10" style="background-color: #e9ecef;">
+        <div class="row py-3">
+            <div class="col-lg-8 col-md-9 col-sm-11">
+                <div class="input-group">
+                    <span class="input-group-text">Codigo de Producto</span>
+                    <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod">
+                    <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ops...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pConsultar.html'"></button>
+                </div>
+                <div class="modal-body">
+                <?php echo "Ese producto no existe" . "<br>"; ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="location.href='../pConsultar.html'">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- Scrips propios -->
+    <script>
+        // MODAL APROVADO
+        var myModal = new bootstrap.Modal(document.getElementById("mostrarModal"), {});
+        // document.onreadystatechange = function () {
+        // myModal.show();
+        // };
+        var modalMostrar = document.getElementById('mostrarModal')
+        myModal.show(modalMostrar)
+    </script>    
+    
+    <?php
+        mysqli_close($conn);
+        }    
+    ?>
+
     <!-- footer -->
-    <div class="container"> <!-- fixed-bottom -->
+    <div class="container fixed-bottom"> <!-- fixed-bottom -->
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -152,8 +219,6 @@
         </footer>
     </div>
 
-    <!-- Scrips propios -->
-    <script src="js/scripts.js"></script>
     <!-- Bootstrap scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
