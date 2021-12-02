@@ -3,10 +3,10 @@
 $servername = "localhost";
 $username = "root";
 $password = "12345678";
-$dbname = "psw_fase4"
+$dbname = "bdunad30";
 
 // Crear conexión
-$conn = mysqli_connect($servername, $username, $password);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Verificar conexión
 if (!$conn){
