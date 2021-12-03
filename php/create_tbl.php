@@ -69,7 +69,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="create_db.php">Crear DB</a></li>
                             <li><a class="dropdown-item" href="#">Crear Tbl</a></li>
-                            <li><a class="dropdown-item" href="reportePDF.php">Reportes</a></li>
+                            <li><a class="dropdown-item" href="reportePDF.php" target="_blank">Reportes</a></li>
                             <li><a class="dropdown-item" href="backup.php">Backup</a></li>
                             <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>

@@ -30,7 +30,7 @@
         <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
         </symbol>
     </svg>
-
+    
     <!-- -Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm p-3 mb-5" style="background-color: #D35400;">
         <div class="container-fluid">
@@ -67,10 +67,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Admin</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Crear DB</a></li>
+                            <li><a class="dropdown-item" href="create_db.php">Crear DB</a></li>
                             <li><a class="dropdown-item" href="create_tbl.php">Crear Tbl</a></li>
                             <li><a class="dropdown-item" href="reportePDF.php" target="_blank">Reportes</a></li>
-                            <li><a class="dropdown-item" href="backup.php">Backup</a></li>
+                            <li><a class="dropdown-item" href="#">Backup</a></li>
                             <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                     </li>
@@ -84,34 +84,146 @@
                 </form> -->
             </div>
         </div>
-    </nav>
-    <!-- cuerpo de la página -->
-    <div class="container-sm text-center py-5 bg-secondary p-2 text-dark bg-opacity-25 shadow p-3 mb-5" style="margin-top: 6rem;">
-        <div class="my-5">
-            <?php
-            // Llamar conexión
-            require("config_con1.php");
+    </nav>    
 
-            // Crear DB
-            $sql = "CREATE DATABASE bdunad30";
+    <?php 
+        date_default_timezone_set("America/Bogota");
+        require("config_con2.php");
 
-            // Verificar creación
-            if (mysqli_query($conn, $sql)){
-                echo "Base de datos creada satisfactoriamente :)";
-            } else {
-                echo "Error creando base de datos: " . mysqli_error($conn);
-            }
+        // Para utilizar Mysqldump y realizar el respaldo, se debe declarar una variable haciendo referencia a la ubicacion del archivo mysqldump.exe
+        $mysqldump = '"../../../mysql/bin/mysqldump.exe"';
+        $backup_file = '"../../../mysql/backup/"' . $dbname . "-" . date("Y-m-d_H-i-s") . ".sql";
+        system("$mysqldump --no-defaults -u $username -p$password $dbname > $backup_file", $output);
 
-            // Cerrar conexión
-            mysqli_close($conn);
+        //var_dump($output);  //para mostrar el resultado de la operación, 0 satisfactoria, 1 error en path, 2 error en conexión a base de datos
+        switch ($output) {
+            case 0:
             ?>
-        </div>
-        <!-- <div class="my-5">
-            <h1 class="fw-bold">PC Electronics</h1>
-        </div> -->
-    </div>
+                <!-- Modal -->
+                <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Aprovado</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../index.html'"></button>
+                            </div>
+                            <div class="modal-body">
+                                <?php echo "La base de Datos <b>". $dbname ."</b> se ha almacenado correctamente en la siguiente ruta <br>" . getcwd() . "/<b>" . $backup_file . "</b>"; ?>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" onclick="location.href='../index.html'">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bootstrap scripts -->
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+                <!-- Scrips propios -->
+                <script>
+                    // MODAL APROVADO
+                    var myModal = new bootstrap.Modal(document.getElementById("mostrarModal"), {});
+                    // document.onreadystatechange = function () {
+                    // myModal.show();
+                    // };
+                    var modalMostrar = document.getElementById('mostrarModal')
+                    myModal.show(modalMostrar)
+                </script>
+            <?php
+            break;
+            
+            case 1:
+            ?>
+                <!-- Modal -->
+                <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Ops..</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../index.html'"></button>
+                            </div>
+                            <div class="modal-body">
+                                <?php echo "Se ha producido un error al exportar <b>". $dbname ."</b> a " . getcwd() . "/ verifique la siguiente ruta: <b>" . $backup_file . "</b>"; ?>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" onclick="location.href='../index.html'">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bootstrap scripts -->
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+                <!-- Scrips propios -->
+                <script>
+                    // MODAL APROVADO
+                    var myModal = new bootstrap.Modal(document.getElementById("mostrarModal"), {});
+                    // document.onreadystatechange = function () {
+                    // myModal.show();
+                    // };
+                    var modalMostrar = document.getElementById('mostrarModal')
+                    myModal.show(modalMostrar)
+                </script>
+            <?php
+            break;
+
+            case 2:
+            ?>
+                <!-- Modal -->
+                <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Ops..</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../index.html'"></button>
+                            </div>
+                            <div class="modal-body">
+                                <?php echo "Se ha producido un error de exportación, compruebe la siguiente información: <br><br>
+                                <table>
+                                    <tr>
+                                        <td>Nombre de la base de datos: </td>
+                                        <td><b>". $dbname ."</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nombre de usuario MySql: </td>
+                                        <td><b>". $username ."</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contraseña MySql: </td>
+                                        <td><b>". $password ."</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nombre de host MySql: </td>
+                                        <td><b>". $servername ."</b></td>
+                                    </tr>
+                                </table>"; ?>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" onclick="location.href='../index.html'">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bootstrap scripts -->
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+                <!-- Scrips propios -->
+                <script>
+                    // MODAL APROVADO
+                    var myModal = new bootstrap.Modal(document.getElementById("mostrarModal"), {});
+                    // document.onreadystatechange = function () {
+                    // myModal.show();
+                    // };
+                    var modalMostrar = document.getElementById('mostrarModal')
+                    myModal.show(modalMostrar)
+                </script>
+            <?php    
+            break;
+        }
+    ?>
+
     <!-- footer -->
-    <div class="container fixed-bottom">
+    <div class="container fixed-bottom"> <!-- fixed-bottom -->
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -127,9 +239,6 @@
             </ul>
         </footer>
     </div>
-
-    <!-- Scrips propios -->
-    <script src="js/scripts.js"></script>
     <!-- Bootstrap scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
