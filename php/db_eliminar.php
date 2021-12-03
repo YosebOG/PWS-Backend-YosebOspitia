@@ -101,9 +101,10 @@
             {    
             ?>
 
-            <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
+            <div class="container-xl col-xl-11">
+                <legend>Eliminación de Productos</legend>
                 <form action="db_eliminar.php" method="post">
-                    <div class="row py-3">
+                    <div class="row py-3" style="background-color: #e9ecef;">
                         <div class="col-lg-8 col-md-9 col-sm-11">
                             <div class="input-group">
                                 <span class="input-group-text">Codigo de Producto</span>
@@ -172,9 +173,10 @@
         } else {
         ?>
 
-        <div class="container-lg col-lg-10" style="background-color: #e9ecef;">
+        <div class="container-lg col-lg-10">
+            <legend>Eliminación de Productos</legend>
             <form action="php/db_eliminar.php" method="post">
-                <div class="row py-3">
+                <div class="row py-3" style="background-color: #e9ecef;">
                     <div class="col-lg-8 col-md-9 col-sm-11">
                         <div class="input-group">
                             <span class="input-group-text">Codigo de Producto</span>
@@ -191,7 +193,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Error</h5>
+                        <h5 class="modal-title">Ops...</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pEliminar.html'"></button>
                     </div>
                     <div class="modal-body">

@@ -105,9 +105,10 @@
             
     ?>
 
-    <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
+    <div class="container-xl col-xl-11">
+        <legend>Actualización de Productos</legend>
         <form action="db_actualizar.php" method="post">
-            <div class="row py-3">
+            <div class="row py-3" style="background-color: #e9ecef;">
                 <div class="col-lg-8 col-md-9 col-sm-11">
                     <div class="input-group">
                         <span class="input-group-text">Codigo de Producto</span>
@@ -189,7 +190,7 @@
                     <p>Datos del producto actualizados satisfactoriamente</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="location.href='../pActualizar.html'">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="location.href='../pActualizar.html'">OK</button>
                 </div>
             </div>
         </div>
@@ -212,9 +213,10 @@
         } else {
     ?>
 
-    <div class="container-lg col-lg-10" style="background-color: #e9ecef;">
+    <div class="container-lg col-lg-10">
+        <legend>Actualización de Productos</legend>
         <form action="php/db_actualizar.php" method="post">
-            <div class="row py-3">
+            <div class="row py-3" style="background-color: #e9ecef;">
                 <div class="col-lg-8 col-md-9 col-sm-11">
                     <div class="input-group">
                         <span class="input-group-text">Codigo de Producto</span>

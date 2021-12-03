@@ -165,7 +165,7 @@
                     <p>Datos del producto grabados satisfactoriamente</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="location.href='../pIngresar.html'">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="location.href='../pIngresar.html'">OK</button>
                 </div>
             </div>
         </div>

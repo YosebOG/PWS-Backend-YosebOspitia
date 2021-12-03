@@ -100,9 +100,10 @@
             while($row = mysqli_fetch_assoc($result)) {
     ?>
 
-    <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
+    <div class="container-xl col-xl-11">
+        <legend>Actualización de Productos</legend>
         <form action="db_actualizar.php" method="post">
-            <div class="row py-3">
+            <div class="row py-3" style="background-color: #e9ecef;">
                 <div class="col-lg-8 col-md-9 col-sm-11">
                     <div class="input-group">
                         <span class="input-group-text">Codigo de Producto</span>
@@ -178,8 +179,9 @@
         } else {
     ?>
 
-    <div class="container-lg col-lg-10" style="background-color: #e9ecef;">
-        <div class="row py-3">
+    <div class="container-lg col-lg-10">
+        <legend>Actualización de Productos</legend>
+        <div class="row py-3" style="background-color: #e9ecef;">
             <div class="col-lg-8 col-md-9 col-sm-11">
                 <div class="input-group">
                     <span class="input-group-text">Codigo de Producto</span>

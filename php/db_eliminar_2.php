@@ -104,9 +104,10 @@
     if (mysqli_query($conn, $sql)) {
     ?>
 
-    <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
+    <div class="container-xl col-xl-11">
+        <legend>Eliminación de Productos</legend>
         <form action="db_eliminar.php" method="post">
-            <div class="row py-3">
+            <div class="row py-3" style="background-color: #e9ecef;">
                 <div class="col-lg-8 col-md-9 col-sm-11">
                     <div class="input-group">
                         <span class="input-group-text">Codigo de Producto</span>
@@ -171,7 +172,7 @@
                     <p>Datos eliminados correctamente</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="location.href='../pEliminar.html'">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="location.href='../pEliminar.html'">OK</button>
                 </div>
             </div>
         </div>
@@ -194,12 +195,27 @@
     } else {
     ?>
 
+    <div class="container-lg col-lg-10" >
+        <legend>Eliminación de Productos</legend>
+        <form action="php/db_eliminar.php" method="post">
+            <div class="row py-3" style="background-color: #e9ecef;">
+                <div class="col-lg-8 col-md-9 col-sm-11">
+                    <div class="input-group">
+                        <span class="input-group-text">Codigo de Producto</span>
+                        <input type="text" class="form-control" id="e_Pcod" name="e_Pcod" value="<?php echo $e_pCod?>" required>
+                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <!-- Modal -->
     <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Error</h5>
+                    <h5 class="modal-title">Ops...</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pEliminar.html'"></button>
                 </div>
                 <div class="modal-body">
