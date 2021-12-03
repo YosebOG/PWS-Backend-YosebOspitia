@@ -30,7 +30,6 @@
         <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
         </symbol>
     </svg>
-    
     <!-- -Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm p-3 mb-5" style="background-color: #D35400;">
         <div class="container-fluid">
@@ -86,83 +85,145 @@
         </div>
     </nav>
 
-    <?php 
+    <?php
         // Llamar conexión DB
         require("config_con2.php");
 
-        $c_pCod = $_POST["c_Pcod"];
+        $a_pCod = $_POST["a_Pcod"];
+        $a_pNom = $_POST["a_Pnom"];
+        $a_pTip = $_POST["a_Ptip"];
+        $a_pCant = $_POST["a_Pcant"];
+        $a_pClas = $_POST["a_Pclas"];
+        $a_pMarc = $_POST["a_Pmarc"];
+        $a_pSer = $_POST["a_Pser"];
+        $a_pMod = $_POST["a_Pmod"];
+        $a_pPrecio = $_POST["a_Pprecio"];
 
-        $sql = "SELECT * FROM tabla30 where pCod=$c_pCod";
-        $result = mysqli_query($conn, $sql);
+        $sql = "UPDATE tabla30 SET pNom='$a_pNom', pTip='$a_pTip', pCant='$a_pCant', pClas='$a_pClas', pMarc='$a_pMarc', pSer='$a_pSer', pMod='$a_pMod', pPrecio='$a_pPrecio' WHERE pCod='$a_pCod'";
 
-        if (mysqli_num_rows($result) > 0) {
-            // Salida de datos de cada fila
-            while($row = mysqli_fetch_assoc($result)) {
+        if (mysqli_query($conn, $sql)) {
+            
     ?>
 
     <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
-        <form action="db_consultar.php" method="post">
+        <form action="db_actualizar.php" method="post">
             <div class="row py-3">
                 <div class="col-lg-8 col-md-9 col-sm-11">
                     <div class="input-group">
                         <span class="input-group-text">Codigo de Producto</span>
-                        <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $row["pCod"]?>">
+                        <input type="text" aria-label="Código Producto" class="form-control" id="a_Pcod" name="a_Pcod" value="<?php echo $a_pCod; ?>">
                         <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
                     </div>
                 </div>
             </div>
         </form>
-        <div class="pb-2">
-            <div style="background-color: #fff;">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Clase</th>
-                            <th scope="col">Marca</th>
-                            <th scope="col">Serial</th>
-                            <th scope="col">Modelo</th>
-                            <th scope="col">Precio</th>
-                        </tr>
+        <form action="db_actualizar_2.php" method="post">
+            <div class="pb-2">
+                <div style="background-color: #fff;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 200px;">Código</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col" style="width: 90px;">Cantidad</th>
+                                <th scope="col">Clase</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row"><?php echo $row["pCod"]; ?></th>
-                            <td><?php echo $row["pNom"]; ?></td>
-                            <td><?php echo $row["pTip"]; ?></td>
-                            <td><?php echo $row["pCant"]; ?></td>
-                            <td><?php echo $row["pClas"]; ?></td>
-                            <td><?php echo $row["pMarc"]; ?></td>
-                            <td><?php echo $row["pSer"]; ?></td>
-                            <td><?php echo $row["pMod"]; ?></td>
-                            <td><?php echo "$ " . $row["pPrecio"]; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
+                            <tr>
+                                <th scope="row"><input type="text" class="form-control" id="a_Pcod" name="a_Pcod" value="<?php echo $a_pCod; ?>" readonly></th>
+                                <td><input type="text" class="form-control" id="a_Pnom" name="a_Pnom" value="<?php echo $a_pNom; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Ptip" name="a_Ptip" value="<?php echo $a_pTip; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Pcant" name="a_Pcant" value="<?php echo $a_pCant; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Pclas" name="a_Pclas" value="<?php echo $a_pClas; ?>"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="background-color: #fff;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Serial</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col" style="width: 250px;">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><input type="text" class="form-control" id="a_Pmarc" name="a_Pmarc" value="<?php echo $a_pMarc; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Pser" name="a_Pser" value="<?php echo $a_pSer; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Pmod" name="a_Pmod" value="<?php echo $a_pMod; ?>"></td>
+                                <td>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="a_Pprecio" name="a_Pprecio" value="<?php echo $a_pPrecio; ?>">
+                                </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col">
+                    <div class="mb-3 d-grid col-2 mx-auto">
+                        <button class="btn btn-primary" type="submit" id="button-addon2">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Aprovado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pActualizar.html'"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Datos del producto actualizados satisfactoriamente</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="location.href='../pActualizar.html'">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>
-
-
+    <!-- Bootstrap scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- Scrips propios -->
+    <script>
+        // MODAL APROVADO
+        var myModal = new bootstrap.Modal(document.getElementById("mostrarModal"), {});
+        // document.onreadystatechange = function () {
+        // myModal.show();
+        // };
+        var modalMostrar = document.getElementById('mostrarModal')
+        myModal.show(modalMostrar)
+    </script>
+    
     <?php
-            mysqli_close($conn);
-            }
         } else {
     ?>
 
     <div class="container-lg col-lg-10" style="background-color: #e9ecef;">
-        <div class="row py-3">
-            <div class="col-lg-8 col-md-9 col-sm-11">
-                <div class="input-group">
-                    <span class="input-group-text">Codigo de Producto</span>
-                    <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $c_pCod ?>">
-                    <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+        <form action="php/db_actualizar.php" method="post">
+            <div class="row py-3">
+                <div class="col-lg-8 col-md-9 col-sm-11">
+                    <div class="input-group">
+                        <span class="input-group-text">Codigo de Producto</span>
+                        <input type="text" class="form-control" id="a_Pcod" name="a_Pcod" placeholder="Ingrese el código" value="<?php echo $a_pCod; ?>">
+                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- Modal -->
@@ -171,13 +232,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Ops...</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pConsultar.html'"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pActualizar.html'"></button>
                 </div>
                 <div class="modal-body">
-                <?php echo "Ese producto no existe" . "<br>"; ?>
+                <?php echo "Error actualizando datos: " . "<br>" . mysqli_error($conn); ?>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="location.href='../pConsultar.html'">Cerrar</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='../pActualizar.html'">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -197,8 +258,8 @@
     </script>    
     
     <?php
+        }
         mysqli_close($conn);
-        }    
     ?>
 
     <!-- footer -->
@@ -222,5 +283,6 @@
     <!-- Bootstrap scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -30,36 +30,36 @@
         <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
         </symbol>
     </svg>
-
+    
     <!-- -Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm p-3 mb-5" style="background-color: #D35400;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">PC Electronics</a>
+            <a class="navbar-brand" href="../index.html">PC Electronics</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Aplicaciones</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="calculadora.html">Calculadora</a></li>
-                            <li><a class="dropdown-item" href="conversor.html">Conversor</a></li>
+                            <li><a class="dropdown-item" href="../calculadora.html">Calculadora</a></li>
+                            <li><a class="dropdown-item" href="../conversor.html">Conversor</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Inventario</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="pConsultar.html">Consultar</a></li>
-                            <li><a class="dropdown-item" href="pIngresar.html">Ingresar</a></li>
-                            <li><a class="dropdown-item" href="pActualizar.html">Actualizar</a></li>
+                            <li><a class="dropdown-item" href="../pConsultar.html">Consultar</a></li>
+                            <li><a class="dropdown-item" href="../pIngresar.html">Ingresar</a></li>
+                            <li><a class="dropdown-item" href="../pActualizar.html">Actualizar</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="pEliminar.html">Eliminar</a></li>
+                            <li><a class="dropdown-item" href="../pEliminar.html">Eliminar</a></li>
                             <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                     </li>
@@ -67,10 +67,10 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Admin</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="php/create_db.php">Crear DB</a></li>
-                            <li><a class="dropdown-item" href="php/create_tbl.php">Crear Tbl</a></li>
-                            <li><a class="dropdown-item" href="php/reportePDF.php">Reportes</a></li>
-                            <li><a class="dropdown-item" href="php/backup.php">Backup</a></li>
+                            <li><a class="dropdown-item" href="create_db.php">Crear DB</a></li>
+                            <li><a class="dropdown-item" href="create_tbl.php">Crear Tbl</a></li>
+                            <li><a class="dropdown-item" href="reportePDF.php">Reportes</a></li>
+                            <li><a class="dropdown-item" href="backup.php">Backup</a></li>
                             <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                         </ul>
                     </li>
@@ -85,50 +85,150 @@
             </div>
         </div>
     </nav>
-    <!-- cuerpo de la página -->
-    <div class="container-lg col-lg-10" style="background-color: #e9ecef;">
-        <form action="php/db_actualizar.php" method="post">
+
+    <?php 
+        // Llamar conexión DB
+        require("config_con2.php");
+
+        $a_pCod = $_POST["a_Pcod"];
+
+        $sql = "SELECT * FROM tabla30 where pCod=$a_pCod";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            // Salida de datos de cada fila
+            while($row = mysqli_fetch_assoc($result)) {
+    ?>
+
+    <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
+        <form action="db_actualizar.php" method="post">
             <div class="row py-3">
                 <div class="col-lg-8 col-md-9 col-sm-11">
                     <div class="input-group">
                         <span class="input-group-text">Codigo de Producto</span>
-                        <input type="text" class="form-control" id="a_Pcod" name="a_Pcod" placeholder="Ingrese el código" required>
+                        <input type="text" aria-label="Código Producto" class="form-control" id="a_Pcod" name="a_Pcod" value="<?php echo $row["pCod"]?>">
                         <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
                     </div>
                 </div>
             </div>
         </form>
-    </div>
-        
-        <!-- <div class="pb-2">
-            <div style="background-color: #fff;">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Clase</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col" style="width: 120px;"></th>
-                        </tr>
+        <form action="db_actualizar_2.php" method="post">
+            <div class="pb-2">
+                <div style="background-color: #fff;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 200px;">Código</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col" style="width: 90px;">Cantidad</th>
+                                <th scope="col">Clase</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1441629</th>
-                            <td>RAM</td>
-                            <td>Componente PC</td>
-                            <td>56</td>
-                            <td>$ 350000</td>
-                            <td><button type="button" class="btn btn-success">Actualizar</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+                            <tr>
+                                <th scope="row"><input type="text" class="form-control" id="a_Pcod" name="a_Pcod" value="<?php echo $row["pCod"]; ?>" readonly></th>
+                                <td><input type="text" class="form-control" id="a_Pnom" name="a_Pnom" value="<?php echo $row["pNom"]; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Ptip" name="a_Ptip" value="<?php echo $row["pTip"]; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Pcant" name="a_Pcant" value="<?php echo $row["pCant"]; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Pclas" name="a_Pclas" value="<?php echo $row["pClas"]; ?>"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="background-color: #fff;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Serial</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col" style="width: 250px;">Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><input type="text" class="form-control" id="a_Pmarc" name="a_Pmarc" value="<?php echo $row["pMarc"]; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Pser" name="a_Pser" value="<?php echo $row["pSer"]; ?>"></td>
+                                <td><input type="text" class="form-control" id="a_Pmod" name="a_Pmod" value="<?php echo $row["pMod"]; ?>"></td>
+                                <td>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="a_Pprecio" name="a_Pprecio" value="<?php echo $row["pPrecio"]; ?>">
+                                </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div> -->
+            <div class="row justify-content-md-center">
+                <div class="col">
+                    <div class="mb-3 d-grid col-2 mx-auto">
+                        <button class="btn btn-primary" type="submit" id="button-addon2">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <?php
+            mysqli_close($conn);
+            }
+        } else {
+    ?>
+
+    <div class="container-lg col-lg-10" style="background-color: #e9ecef;">
+        <div class="row py-3">
+            <div class="col-lg-8 col-md-9 col-sm-11">
+                <div class="input-group">
+                    <span class="input-group-text">Codigo de Producto</span>
+                    <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $a_pCod;?>">
+                    <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ops...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pActualizar.html'"></button>
+                </div>
+                <div class="modal-body">
+                <?php echo "Ese producto no existe" . "<br>"; ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="location.href='../pActualizar.html'">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <!-- Scrips propios -->
+    <script>
+        // MODAL APROVADO
+        var myModal = new bootstrap.Modal(document.getElementById("mostrarModal"), {});
+        // document.onreadystatechange = function () {
+        // myModal.show();
+        // };
+        var modalMostrar = document.getElementById('mostrarModal')
+        myModal.show(modalMostrar)
+    </script>    
     
+    <?php
+        mysqli_close($conn);
+        }    
+    ?>
+
     <!-- footer -->
-    <div class="container fixed-bottom">
+    <div class="container fixed-bottom"> <!-- fixed-bottom -->
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
                 <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -145,8 +245,6 @@
         </footer>
     </div>
 
-    <!-- Scrips propios -->
-    <script src="js/scripts.js"></script>
     <!-- Bootstrap scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
