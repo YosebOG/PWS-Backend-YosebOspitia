@@ -103,67 +103,69 @@
 
             <div class="container-xl col-xl-11">
                 <legend>Eliminación de Productos</legend>
-                <form action="db_eliminar.php" method="post">
-                    <div class="row py-3" style="background-color: #e9ecef;">
-                        <div class="col-lg-8 col-md-9 col-sm-11">
-                            <div class="input-group">
-                                <span class="input-group-text">Codigo de Producto</span>
-                                <input type="text" aria-label="Código Producto" class="form-control" id="e_Pcod" name="e_Pcod" value="<?php echo $row["pCod"]?>" required>
-                                <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                <div class="container" style="background-color: #e9ecef;">
+                    <form action="db_eliminar.php" method="post">
+                        <div class="row py-3">
+                            <div class="col-lg-8 col-md-9 col-sm-11">
+                                <div class="input-group">
+                                    <span class="input-group-text">Codigo de Producto</span>
+                                    <input type="text" aria-label="Código Producto" class="form-control" id="e_Pcod" name="e_Pcod" value="<?php echo $row["pCod"]?>" required>
+                                    <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-                <form action="db_eliminar_2.php" method="post">
-                    <div class="pb-2">
-                        <div style="background-color: #fff;">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Código</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Tipo</th>
-                                        <th scope="col">Cantidad</th>
-                                        <th scope="col">Clase</th>
-                                        <th scope="col">Marca</th>
-                                        <th scope="col">Serial</th>
-                                        <th scope="col">Modelo</th>
-                                        <th scope="col">Precio</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row"><?php echo $row["pCod"]; ?></th>
-                                        <td><?php echo $row["pNom"]; ?></td>
-                                        <td><?php echo $row["pTip"]; ?></td>
-                                        <td><?php echo $row["pCant"]; ?></td>
-                                        <td><?php echo $row["pClas"]; ?></td>
-                                        <td><?php echo $row["pMarc"]; ?></td>
-                                        <td><?php echo $row["pSer"]; ?></td>
-                                        <td><?php echo $row["pMod"]; ?></td>
-                                        <td><?php echo "$ " . $row["pPrecio"]; ?></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" id="e_Pcod" name="e_Pcod" value="<?php echo $row["pCod"]; ?>" required hidden>
-                    <input type="text" class="form-control" id="e_Pnom" name="e_Pnom" value="<?php echo $row["pNom"]; ?>" hidden>
-                    <input type="text" class="form-control" id="e_Ptip" name="e_Ptip" value="<?php echo $row["pTip"]; ?>" hidden>
-                    <input type="text" class="form-control" id="e_Pcant" name="e_Pcant" value="<?php echo $row["pCant"]; ?>" hidden>
-                    <input type="text" class="form-control" id="e_Pclas" name="e_Pclas" value="<?php echo $row["pClas"]; ?>" hidden>
-                    <input type="text" class="form-control" id="e_Pmarc" name="e_Pmarc" value="<?php echo $row["pMarc"]; ?>" hidden>
-                    <input type="text" class="form-control" id="e_Pser" name="e_Pser" value="<?php echo $row["pSer"]; ?>" hidden>
-                    <input type="text" class="form-control" id="e_Pmod" name="e_Pmod" value="<?php echo $row["pMod"]; ?>" hidden>
-                    <input type="text" class="form-control" id="e_Pprecio" name="e_Pprecio" value="<?php echo $row["pPrecio"]; ?>" hidden>
-                    <div class="row justify-content-md-center">
-                        <div class="col">
-                            <div class="mb-3 d-grid col-2 mx-auto">
-                                <button class="btn btn-danger" type="submit" id="button-addon2">Eliminar</button>
+                    </form>
+                    <form action="db_eliminar_2.php" method="post">
+                        <div class="pb-2">
+                            <div style="background-color: #fff;">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Código</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Cantidad</th>
+                                            <th scope="col">Clase</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Serial</th>
+                                            <th scope="col">Modelo</th>
+                                            <th scope="col">Precio</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row"><?php echo $row["pCod"]; ?></th>
+                                            <td><?php echo $row["pNom"]; ?></td>
+                                            <td><?php echo $row["pTip"]; ?></td>
+                                            <td><?php echo $row["pCant"]; ?></td>
+                                            <td><?php echo $row["pClas"]; ?></td>
+                                            <td><?php echo $row["pMarc"]; ?></td>
+                                            <td><?php echo $row["pSer"]; ?></td>
+                                            <td><?php echo $row["pMod"]; ?></td>
+                                            <td><?php echo "$ " . $row["pPrecio"]; ?></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                </form>
+                        <input type="text" class="form-control" id="e_Pcod" name="e_Pcod" value="<?php echo $row["pCod"]; ?>" required hidden>
+                        <input type="text" class="form-control" id="e_Pnom" name="e_Pnom" value="<?php echo $row["pNom"]; ?>" hidden>
+                        <input type="text" class="form-control" id="e_Ptip" name="e_Ptip" value="<?php echo $row["pTip"]; ?>" hidden>
+                        <input type="text" class="form-control" id="e_Pcant" name="e_Pcant" value="<?php echo $row["pCant"]; ?>" hidden>
+                        <input type="text" class="form-control" id="e_Pclas" name="e_Pclas" value="<?php echo $row["pClas"]; ?>" hidden>
+                        <input type="text" class="form-control" id="e_Pmarc" name="e_Pmarc" value="<?php echo $row["pMarc"]; ?>" hidden>
+                        <input type="text" class="form-control" id="e_Pser" name="e_Pser" value="<?php echo $row["pSer"]; ?>" hidden>
+                        <input type="text" class="form-control" id="e_Pmod" name="e_Pmod" value="<?php echo $row["pMod"]; ?>" hidden>
+                        <input type="text" class="form-control" id="e_Pprecio" name="e_Pprecio" value="<?php echo $row["pPrecio"]; ?>" hidden>
+                        <div class="row justify-content-md-center">
+                            <div class="col">
+                                <div class="mb-3 d-grid col-2 mx-auto">
+                                    <button class="btn btn-danger" type="submit" id="button-addon2">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             
 
@@ -175,17 +177,19 @@
 
         <div class="container-lg col-lg-10">
             <legend>Eliminación de Productos</legend>
-            <form action="php/db_eliminar.php" method="post">
-                <div class="row py-3" style="background-color: #e9ecef;">
-                    <div class="col-lg-8 col-md-9 col-sm-11">
-                        <div class="input-group">
-                            <span class="input-group-text">Codigo de Producto</span>
-                            <input type="text" class="form-control" id="e_Pcod" name="e_Pcod" value="<?php echo $e_pCod; ?>">
-                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+            <div class="container" style="background-color: #e9ecef;">
+                <form action="php/db_eliminar.php" method="post">
+                    <div class="row py-3">
+                        <div class="col-lg-8 col-md-9 col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-text">Codigo de Producto</span>
+                                <input type="text" class="form-control" id="e_Pcod" name="e_Pcod" value="<?php echo $e_pCod; ?>">
+                                <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
 
         <!-- Modal -->

@@ -107,75 +107,77 @@
 
     <div class="container-xl col-xl-11">
         <legend>Actualización de Productos</legend>
-        <form action="db_actualizar.php" method="post">
-            <div class="row py-3" style="background-color: #e9ecef;">
-                <div class="col-lg-8 col-md-9 col-sm-11">
-                    <div class="input-group">
-                        <span class="input-group-text">Codigo de Producto</span>
-                        <input type="text" aria-label="Código Producto" class="form-control" id="a_Pcod" name="a_Pcod" value="<?php echo $a_pCod; ?>">
-                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+        <div class="container" style="background-color: #e9ecef;">
+            <form action="db_actualizar.php" method="post">
+                <div class="row py-3">
+                    <div class="col-lg-8 col-md-9 col-sm-11">
+                        <div class="input-group">
+                            <span class="input-group-text">Codigo de Producto</span>
+                            <input type="text" aria-label="Código Producto" class="form-control" id="a_Pcod" name="a_Pcod" value="<?php echo $a_pCod; ?>">
+                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-        <form action="db_actualizar_2.php" method="post">
-            <div class="pb-2">
-                <div style="background-color: #fff;">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col" style="width: 200px;">Código</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Tipo</th>
-                                <th scope="col" style="width: 90px;">Cantidad</th>
-                                <th scope="col">Clase</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row"><input type="text" class="form-control" id="a_Pcod" name="a_Pcod" value="<?php echo $a_pCod; ?>" readonly></th>
-                                <td><input type="text" class="form-control" id="a_Pnom" name="a_Pnom" value="<?php echo $a_pNom; ?>"></td>
-                                <td><input type="text" class="form-control" id="a_Ptip" name="a_Ptip" value="<?php echo $a_pTip; ?>"></td>
-                                <td><input type="text" class="form-control" id="a_Pcant" name="a_Pcant" value="<?php echo $a_pCant; ?>"></td>
-                                <td><input type="text" class="form-control" id="a_Pclas" name="a_Pclas" value="<?php echo $a_pClas; ?>"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div style="background-color: #fff;">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Marca</th>
-                                <th scope="col">Serial</th>
-                                <th scope="col">Modelo</th>
-                                <th scope="col" style="width: 250px;">Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row"><input type="text" class="form-control" id="a_Pmarc" name="a_Pmarc" value="<?php echo $a_pMarc; ?>"></td>
-                                <td><input type="text" class="form-control" id="a_Pser" name="a_Pser" value="<?php echo $a_pSer; ?>"></td>
-                                <td><input type="text" class="form-control" id="a_Pmod" name="a_Pmod" value="<?php echo $a_pMod; ?>"></td>
-                                <td>
-                                <div class="input-group">
-                                    <span class="input-group-text">$</span>
-                                    <input type="text" class="form-control" id="a_Pprecio" name="a_Pprecio" value="<?php echo $a_pPrecio; ?>">
-                                </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="row justify-content-md-center">
-                <div class="col">
-                    <div class="mb-3 d-grid col-2 mx-auto">
-                        <button class="btn btn-primary" type="submit" id="button-addon2">Actualizar</button>
+            </form>
+            <form action="db_actualizar_2.php" method="post">
+                <div class="pb-2">
+                    <div style="background-color: #fff;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width: 200px;">Código</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col" style="width: 90px;">Cantidad</th>
+                                    <th scope="col">Clase</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><input type="text" class="form-control" id="a_Pcod" name="a_Pcod" value="<?php echo $a_pCod; ?>" readonly></th>
+                                    <td><input type="text" class="form-control" id="a_Pnom" name="a_Pnom" value="<?php echo $a_pNom; ?>"></td>
+                                    <td><input type="text" class="form-control" id="a_Ptip" name="a_Ptip" value="<?php echo $a_pTip; ?>"></td>
+                                    <td><input type="text" class="form-control" id="a_Pcant" name="a_Pcant" value="<?php echo $a_pCant; ?>"></td>
+                                    <td><input type="text" class="form-control" id="a_Pclas" name="a_Pclas" value="<?php echo $a_pClas; ?>"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="background-color: #fff;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Serial</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col" style="width: 250px;">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row"><input type="text" class="form-control" id="a_Pmarc" name="a_Pmarc" value="<?php echo $a_pMarc; ?>"></td>
+                                    <td><input type="text" class="form-control" id="a_Pser" name="a_Pser" value="<?php echo $a_pSer; ?>"></td>
+                                    <td><input type="text" class="form-control" id="a_Pmod" name="a_Pmod" value="<?php echo $a_pMod; ?>"></td>
+                                    <td>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="text" class="form-control" id="a_Pprecio" name="a_Pprecio" value="<?php echo $a_pPrecio; ?>">
+                                    </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-        </form>
+                <div class="row justify-content-md-center">
+                    <div class="col">
+                        <div class="mb-3 d-grid col-2 mx-auto">
+                            <button class="btn btn-primary" type="submit" id="button-addon2">Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Modal -->
@@ -215,17 +217,19 @@
 
     <div class="container-lg col-lg-10">
         <legend>Actualización de Productos</legend>
-        <form action="php/db_actualizar.php" method="post">
-            <div class="row py-3" style="background-color: #e9ecef;">
-                <div class="col-lg-8 col-md-9 col-sm-11">
-                    <div class="input-group">
-                        <span class="input-group-text">Codigo de Producto</span>
-                        <input type="text" class="form-control" id="a_Pcod" name="a_Pcod" placeholder="Ingrese el código" value="<?php echo $a_pCod; ?>">
-                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+        <div class="container" style="background-color: #e9ecef;">
+            <form action="php/db_actualizar.php" method="post">
+                <div class="row py-3">
+                    <div class="col-lg-8 col-md-9 col-sm-11">
+                        <div class="input-group">
+                            <span class="input-group-text">Codigo de Producto</span>
+                            <input type="text" class="form-control" id="a_Pcod" name="a_Pcod" placeholder="Ingrese el código" value="<?php echo $a_pCod; ?>">
+                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
     <!-- Modal -->

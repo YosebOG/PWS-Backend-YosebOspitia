@@ -101,48 +101,50 @@
     ?>
 
     <div class="container-xl col-xl-11">
-        <legend>Eliminación de Productos</legend>
-        <form action="db_consultar.php" method="post">
-            <div class="row py-3" style="background-color: #e9ecef;">
-                <div class="col-lg-8 col-md-9 col-sm-11">
-                    <div class="input-group">
-                        <span class="input-group-text">Codigo de Producto</span>
-                        <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $row["pCod"]?>" required>
-                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+        <legend>Consulta de Productos</legend>
+        <div class="container" style="background-color: #e9ecef;">
+            <form action="db_consultar.php" method="post">
+                <div class="row py-3" >
+                    <div class="col-lg-8 col-md-9 col-sm-11">
+                        <div class="input-group">
+                            <span class="input-group-text">Codigo de Producto</span>
+                            <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $row["pCod"]?>" required>
+                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-        <div class="pb-2">
-            <div style="background-color: #fff;">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Código</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Tipo</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Clase</th>
-                            <th scope="col">Marca</th>
-                            <th scope="col">Serial</th>
-                            <th scope="col">Modelo</th>
-                            <th scope="col">Precio</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row"><?php echo $row["pCod"]; ?></th>
-                            <td><?php echo $row["pNom"]; ?></td>
-                            <td><?php echo $row["pTip"]; ?></td>
-                            <td><?php echo $row["pCant"]; ?></td>
-                            <td><?php echo $row["pClas"]; ?></td>
-                            <td><?php echo $row["pMarc"]; ?></td>
-                            <td><?php echo $row["pSer"]; ?></td>
-                            <td><?php echo $row["pMod"]; ?></td>
-                            <td><?php echo "$ " . $row["pPrecio"]; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
+            </form>
+            <div class="pb-2">
+                <div style="background-color: #fff;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Código</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Clase</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Serial</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Precio</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row"><?php echo $row["pCod"]; ?></th>
+                                <td><?php echo $row["pNom"]; ?></td>
+                                <td><?php echo $row["pTip"]; ?></td>
+                                <td><?php echo $row["pCant"]; ?></td>
+                                <td><?php echo $row["pClas"]; ?></td>
+                                <td><?php echo $row["pMarc"]; ?></td>
+                                <td><?php echo $row["pSer"]; ?></td>
+                                <td><?php echo $row["pMod"]; ?></td>
+                                <td><?php echo "$ " . $row["pPrecio"]; ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -155,13 +157,15 @@
     ?>
 
     <div class="container-lg col-lg-10">
-        <legend>Eliminación de Productos</legend>
-        <div class="row py-3" style="background-color: #e9ecef;">
-            <div class="col-lg-8 col-md-9 col-sm-11">
-                <div class="input-group">
-                    <span class="input-group-text">Codigo de Producto</span>
-                    <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $c_pCod ?>">
-                    <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+        <legend>Consulta de Productos</legend>
+        <div class="container" style="background-color: #e9ecef;">
+            <div class="row py-3">
+                <div class="col-lg-8 col-md-9 col-sm-11">
+                    <div class="input-group">
+                        <span class="input-group-text">Codigo de Producto</span>
+                        <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $c_pCod ?>">
+                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                    </div>
                 </div>
             </div>
         </div>

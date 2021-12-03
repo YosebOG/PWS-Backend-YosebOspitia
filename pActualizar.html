@@ -88,17 +88,19 @@
     <!-- cuerpo de la página -->
     <div class="container-lg col-lg-10">
         <legend>Actualización de Productos</legend>
-        <form action="php/db_actualizar.php" method="post">
-            <div class="row py-3" style="background-color: #e9ecef;">
-                <div class="col-lg-8 col-md-9 col-sm-11">
-                    <div class="input-group">
-                        <span class="input-group-text">Codigo de Producto</span>
-                        <input type="text" class="form-control" id="a_Pcod" name="a_Pcod" placeholder="Ingrese el código" required>
-                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+        <div class="container" style="background-color: #e9ecef;">
+            <form action="php/db_actualizar.php" method="post">
+                <div class="row py-3">
+                    <div class="col-lg-8 col-md-9 col-sm-11">
+                        <div class="input-group">
+                            <span class="input-group-text">Codigo de Producto</span>
+                            <input type="text" class="form-control" id="a_Pcod" name="a_Pcod" placeholder="Ingrese el código" required>
+                            <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
         
         <!-- <div class="pb-2">
