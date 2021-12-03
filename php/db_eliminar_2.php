@@ -86,71 +86,77 @@
     </nav>
 
     <?php
-        // Llamar conexión DB
-        require("config_con2.php");
+    // EstablecerConección DB
+    require("config_con2.php");
 
-        $i_pCod = $_POST["i_Pcod"];
-        $i_pNom = $_POST["i_Pnom"];
-        $i_pTip = $_POST["i_Ptip"];
-        $i_pCant = $_POST["i_Pcant"];
-        $i_pClas = $_POST["i_Pclas"];
-        $i_pMarc = $_POST["i_Pmarc"];
-        $i_pSer = $_POST["i_Pser"];
-        $i_pMod = $_POST["i_Pmod"];
-        $i_pPrecio = $_POST["i_Pprecio"];
+    $e_pCod = $_POST["e_Pcod"];
+    $e_pNom = $_POST["e_Pnom"];
+    $e_pTip = $_POST["e_Ptip"];
+    $e_pCant = $_POST["e_Pcant"];
+    $e_pClas = $_POST["e_Pclas"];
+    $e_pMarc = $_POST["e_Pmarc"];
+    $e_pSer = $_POST["e_Pser"];
+    $e_pMod = $_POST["e_Pmod"];
+    $e_pPrecio = $_POST["e_Pprecio"];
 
-        $sql = "INSERT INTO tabla30 (pCod, pNom, pTip, pCant, pClas, pMarc, pSer, pMod, pPrecio) 
-                VALUES ('$i_pCod', '$i_pNom', '$i_pTip', '$i_pCant', '$i_pClas', '$i_pMarc', '$i_pSer', '$i_pMod', '$i_pPrecio' )";
-
-        if (mysqli_query($conn, $sql)) {
-            
+    // Eliminar registro
+    $sql = "DELETE FROM tabla30 WHERE pCod=$e_pCod";
+    if (mysqli_query($conn, $sql)) {
     ?>
 
-    <div class="container-lg col-lg-7">
-        <legend>Ingreso de Productos</legend>
-        <div class="row pt-3 pb-1" style="background-color: #e9ecef;">
-            <div class="col">
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Codigo</span>
-                    <input type="text" aria-label="Código Producto" class="form-control" id="i_Pcod" name="i_Pcod" placeholder="Ingrese el código del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Nombre</span>
-                    <input type="text" aria-label="Nombre Producto" class="form-control" id="i_Pnom" name="i_Pnom" placeholder="Ingrese el nombre del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Tipo</span>
-                    <input type="text" aria-label="Tipo Producto" class="form-control" id="i_Ptip" name="i_Ptip" placeholder="Ingrese el tipo del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Cantidad</span>
-                    <input type="text" aria-label="Cantidad Unidades" class="form-control" id="i_Pcant" name="i_Pcant" placeholder="Ingrese la cantidad de productos disponibles">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Clase</span>
-                    <input type="text" aria-label="Clase Producto" class="form-control" id="i_Pclas" name="i_Pclas" placeholder="Ingrese la clase del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Marca</span>
-                    <input type="text" aria-label="Marca Producto" class="form-control" id="i_Pmarc" name="i_Pmarc" placeholder="Ingrese la marca del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Serial</span>
-                    <input type="text" aria-label="Serial Producto" class="form-control" id="i_Pser" name="i_Pser" placeholder="Ingrese el serial del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Modelo</span>
-                    <input type="text" aria-label="Model Producto" class="form-control" id="i_Pmod" name="i_Pmod" placeholder="Ingrese el modelo del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Precio</span>
-                    <input type="text" aria-label="Precio Producto" class="form-control" id="i_Pprecio" name="i_Pprecio" placeholder="Ingrese el precio del producto">
+    <div class="container-xl col-xl-11" style="background-color: #e9ecef;">
+        <form action="db_eliminar.php" method="post">
+            <div class="row py-3">
+                <div class="col-lg-8 col-md-9 col-sm-11">
+                    <div class="input-group">
+                        <span class="input-group-text">Codigo de Producto</span>
+                        <input type="text" aria-label="Código Producto" class="form-control" id="e_Pcod" name="e_Pcod" value="<?php echo $e_pCod?>" required>
+                        <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="d-grid col-6 mx-auto mt-3 mb-2">
-            <button type="submit" class="btn btn-primary" aria-label="Botón Ingresar">Ingresar</button>
-        </div>
+        </form>
+        <form action="db_eliminar_2.php" method="post">
+            <div class="pb-2">
+                <div style="background-color: #fff;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Código</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Clase</th>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Serial</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Precio</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row"><?php echo $e_pCod; ?></th>
+                                <td><?php echo $e_pNom; ?></td>
+                                <td><?php echo $e_pTip; ?></td>
+                                <td><?php echo $e_pCant; ?></td>
+                                <td><?php echo $e_pClas; ?></td>
+                                <td><?php echo $e_pMarc; ?></td>
+                                <td><?php echo $e_pSer; ?></td>
+                                <td><?php echo $e_pMod; ?></td>
+                                <td><?php echo "$ " . $e_pPrecio; ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col">
+                    <div class="mb-3 d-grid col-2 mx-auto">
+                        <button class="btn btn-danger" type="submit" id="button-addon2">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 
     <!-- Modal -->
@@ -159,13 +165,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Aprovado</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pIngresar.html'"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pEliminar.html'"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Datos del producto grabados satisfactoriamente</p>
+                    <p>Datos eliminados correctamente</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="location.href='../pIngresar.html'">Cerrar</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='../pEliminar.html'">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -183,71 +189,24 @@
         var modalMostrar = document.getElementById('mostrarModal')
         myModal.show(modalMostrar)
     </script>
-    
-    <?php
-        } else {
-    ?>
 
-    <div class="container-lg col-lg-7">
-        <legend>Ingreso de Productos</legend>
-        <div class="row pt-3 pb-1" style="background-color: #e9ecef;">
-            <div class="col">
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Codigo</span>
-                    <input type="text" aria-label="Código Producto" class="form-control" id="i_Pcod" name="i_Pcod" placeholder="Ingrese el código del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Nombre</span>
-                    <input type="text" aria-label="Nombre Producto" class="form-control" id="i_Pnom" name="i_Pnom" placeholder="Ingrese el nombre del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Tipo</span>
-                    <input type="text" aria-label="Tipo Producto" class="form-control" id="i_Ptip" name="i_Ptip" placeholder="Ingrese el tipo del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Cantidad</span>
-                    <input type="text" aria-label="Cantidad Unidades" class="form-control" id="i_Pcant" name="i_Pcant" placeholder="Ingrese la cantidad de productos disponibles">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Clase</span>
-                    <input type="text" aria-label="Clase Producto" class="form-control" id="i_Pclas" name="i_Pclas" placeholder="Ingrese la clase del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Marca</span>
-                    <input type="text" aria-label="Marca Producto" class="form-control" id="i_Pmarc" name="i_Pmarc" placeholder="Ingrese la marca del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Serial</span>
-                    <input type="text" aria-label="Serial Producto" class="form-control" id="i_Pser" name="i_Pser" placeholder="Ingrese el serial del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Modelo</span>
-                    <input type="text" aria-label="Model Producto" class="form-control" id="i_Pmod" name="i_Pmod" placeholder="Ingrese el modelo del producto">
-                </div>
-                <div class="input-group mb-2">
-                    <span class="input-group-text col-sm-3">Precio</span>
-                    <input type="text" aria-label="Precio Producto" class="form-control" id="i_Pprecio" name="i_Pprecio" placeholder="Ingrese el precio del producto">
-                </div>
-            </div>
-        </div>
-        <div class="d-grid col-6 mx-auto mt-3 mb-2">
-            <button type="submit" class="btn btn-primary" aria-label="Botón Ingresar">Ingresar</button>
-        </div>
-    </div>
+<?php
+    } else {
+    ?>
 
     <!-- Modal -->
     <div class="modal fade" id="mostrarModal" data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Ops...</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pIngresar.html'"></button>
+                    <h5 class="modal-title">Error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pEliminar.html'"></button>
                 </div>
                 <div class="modal-body">
-                    <?php echo "Error grabando datos: " . $sql . "<br>" . mysqli_error($conn); ?>
+                    <?php echo "Error actualizando datos: " . "<br>" . mysqli_error($conn); ?>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="location.href='../pIngresar.html'">Cerrar</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='../pEliminar.html'">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -264,12 +223,16 @@
         // };
         var modalMostrar = document.getElementById('mostrarModal')
         myModal.show(modalMostrar)
-    </script>    
-    
+    </script>
+
     <?php
-        }
-        mysqli_close($conn);
+    }
     ?>
+
+
+
+
+
 
     <!-- footer -->
     <div class="container fixed-bottom"> <!-- fixed-bottom -->
@@ -288,5 +251,10 @@
             </ul>
         </footer>
     </div>
+
+    <!-- Bootstrap scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
 </body>
 </html>

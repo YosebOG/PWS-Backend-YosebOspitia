@@ -106,7 +106,7 @@
                 <div class="col-lg-8 col-md-9 col-sm-11">
                     <div class="input-group">
                         <span class="input-group-text">Codigo de Producto</span>
-                        <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $row["pCod"]?>">
+                        <input type="text" aria-label="Código Producto" class="form-control" id="c_Pcod" name="c_Pcod" value="<?php echo $row["pCod"]?>" required>
                         <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pConsultar.html'"></button>
                 </div>
                 <div class="modal-body">
-                <?php echo "Ese producto no existe" . "<br>"; ?>
+                    <?php echo "Ese producto no existe" . "<br>"; ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" onclick="location.href='../pConsultar.html'">Cerrar</button>

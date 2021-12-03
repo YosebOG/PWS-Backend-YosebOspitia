@@ -235,7 +235,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='../pActualizar.html'"></button>
                 </div>
                 <div class="modal-body">
-                <?php echo "Error actualizando datos: " . "<br>" . mysqli_error($conn); ?>
+                    <?php echo "Error actualizando datos: " . "<br>" . mysqli_error($conn); ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" onclick="location.href='../pActualizar.html'">Cerrar</button>

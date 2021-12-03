@@ -94,9 +94,9 @@
 
             // Crear tbl
             $sql = "CREATE TABLE tabla30 (
-                pCod INT(10) PRIMARY KEY, 
-                pNom VARCHAR(30), 
-                pTip VARCHAR(30), 
+                pCod VARCHAR(15) PRIMARY KEY NOT NULL, 
+                pNom VARCHAR(50), 
+                pTip VARCHAR(40), 
                 pCant INT(5), 
                 pClas VARCHAR(50), 
                 pMarc VARCHAR(50), 
